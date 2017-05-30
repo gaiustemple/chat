@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Node Server</title>
+        <link rel="stylesheet" href="css/style.css" media="screen" title="no title" charset="utf-8">
+        <script src="js/jquery.min.js" charset="utf-8"></script>
+        <script src="js/jquery.cookie.js" charset="utf-8"></script>
+        <script src="js/socket.io.js" charset="utf-8"></script>
+        <script src="js/main.js" charset="utf-8"></script>
+    </head>
+
+    <body>
+        <div class="wrapper">
+
+            <div class="login">
+                <div class="login-wrapper">
+                    <form class="username-form" action="index.html">
+                        <div>Username</div>
+                        <input class="username" type="text" name="username" value="">
+                        <button class="username-submit">Go</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="chat">
+                <ul class="users-list">
+                </ul> 
+                <div class="header">
+                    <div class="menu">
+                        <div class="logout"></div>
+                        <div class="welcome"><p>Hi, <span class="current-username"></span></p></div>
+                        <div class="info"></div>
+                    </div>
+                    <div class="settings closed">
+                        <div class="cont">
+                            <div class="settings-option">
+                                <p>Toggle the background between dark and light</p>
+                                <div id="bt1" class="iosbutton" onclick=""></div>
+                            </div>
+                            <div class="settings-option">
+                                <p>Do you want your message timestamp shown?</p>
+                                <div id="bt2" class="iosbutton" onclick=""></div>
+                            </div>
+                            <div class="settings-option">
+                                <p>Do you want their message timestamp shown?</p>
+                                <div id="bt3" class="iosbutton" onclick=""></div>
+                            </div>
+                            <div class="settings-option">
+                                <p>Clear the chat</p>
+                                <div id="bt4" class="clearicon" onclick=""></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="messages">
+                    <ul class="messages-list">
+
+                    </ul>
+                </div>
+                <div class="message">
+                    <form class="chat-form" action="index.html" method="post">
+                        <div class="send-message">
+                            <input class="form-control" id="message-field" name="message" placeholder="Message"></textarea>
+                            <button class="" type="submit" name="button">&uarr;</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>

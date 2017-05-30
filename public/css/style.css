@@ -1,0 +1,284 @@
+body {
+	background: #f1f1f1;
+	font:16px helvetica;
+	color: #273339;
+	text-align:center;
+	margin: 0;
+	transition: 0.6s ease;
+}
+ 
+p, span {
+	margin:0;
+	padding:0;
+}
+
+/* input {
+    font: 1em helvetica;
+} */
+ 
+a {
+	color:#006cFF;
+	text-decoration:none;
+}
+
+.blur {
+	-webkit-filter: blur(5px);
+	-moz-filter: blur(5px);
+	-o-filter: blur(5px);
+	-ms-filter: blur(5px);
+	filter: blur(5px);
+}
+
+.error-color {
+    color: #ff3b30;
+}
+
+.error-border {
+    border: 1px solid #ff3b30;
+}
+
+.error-background {
+    background: #ff3b30;
+}
+
+.login {
+    position: absolute;
+	top: 0;
+    right: 0;
+    bottom: 0;
+	left: 0;
+    background: #fff;
+    visibility: visible;
+    z-index: 1;
+}
+
+.login.hide {
+    visibility: hidden;
+    z-index: -1;
+}
+
+.login-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+	transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
+}
+
+.users-list {
+    display: none;
+}
+
+.menu {
+	padding: 0.6em 1.5em 0.6em 1.5em;
+	background: #f7f7f7;
+	z-index: 2;
+}
+
+.welcome {
+    display: inline-block;
+    margin-top: 0.3em;
+}
+
+.logout {
+    float: left;
+    font-size: 1.6em;
+}
+
+.info {
+  margin: 0;
+  float: right;
+  cursor: pointer;
+  font-size: 1.6em;
+}
+
+.settings {
+	position: absolute;
+	top: 3.1em;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(255,255,255,0.7);
+	-webkit-backdrop-filter: blur(15px);
+	backdrop-filter: blur(15px);
+	transform: translate(0,0);
+	transition: .3s ease-out;
+	opacity: 1;
+	z-index: 1;
+}
+
+.settings.closed {
+	transform: translate(100%,0);
+	opacity: 0;
+	z-index: -1;
+}
+
+.settings.cont {
+    padding: 20px;
+    text-align: left;
+}
+
+.settings.cont p {
+    display: inline-block;
+    margin: 0 0 3px 0;
+}
+
+.chat {
+    position: absolute;
+	right: 0;
+	bottom: 0;
+	width: 400px;
+	transition: 0.3s ease;
+	overflow: hidden;
+	background: #fff;
+}
+
+.messages {
+    text-align:left;
+	margin:0;
+	padding: 0;
+	background:#fff;
+	height:350px;
+	width: 100%;
+	border: none;
+	overflow:auto;
+	border: none;
+	border-top: 1px solid #dedfe0;
+	border-bottom: 1px solid #dedfe0;
+}
+
+.messages-list {
+    margin: .7em 0 0;
+    padding: 0 1em;
+    list-style-type: none;
+}
+
+.messages-list span {
+    margin: 0 0.5em 0.3em;
+    padding: 0.4em 0.8em;
+    border-radius: 1em;
+    display: inline-block;
+    max-width: 70%;
+    background: #e5e5ea;
+    letter-spacing: .5px;
+    word-wrap: break-word;
+    float: left;
+}
+
+.messages-list .me span {
+    float: right;
+    background: #009eff;
+    color: #fff;
+}
+
+.messages-list b {
+    display: inline-block;
+    font-size: .9em;
+    font-weight: 400;
+    vertical-align: bottom;
+}
+
+.messages-list .me b {
+    display: none;
+}
+
+.messages-list li::after,
+.messages-list span::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.message {
+    /* font-size: 16px;
+    /* margin-bottom: 10px; */
+}
+
+.send-message {
+    margin: 5px 15px;
+    padding: .2em;
+    width: calc(100% - 30px);
+    height: 2.2em;
+    border: 1px solid #ccc;
+    border-radius: 3em;
+    text-align: left;
+    box-sizing: border-box;
+}
+
+.send-message input {
+    width: calc(100% - 2em);
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    background: none;
+    border: none;
+    text-indent: .8em;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.send-message button {
+    margin: 0;
+    padding: 0;
+    width: 1.7em;
+    height: 1.7em;
+    font-size: 16px;
+    color: #fff;
+    background: #06f;
+    border: none;
+    border-radius: 2em;
+    box-sizing: border-box;
+}
+
+/* .chat {
+    position: absolute;
+	top: 0;
+    right: 0;
+    bottom: 0;
+	left: 0;
+    background: #fff;
+    z-index: 0;
+} */
+
+.iosbutton {
+	display: inline-block;
+	position: relative;
+	box-shadow: inset 0 0 0px 1px #d5d5d5;
+	height: 24px;
+	width: 40px;
+	border-radius: 15px;
+	border: none;
+	float: right;
+}
+
+.iosbutton::before,
+.iosbutton::after {
+	content: '';
+	display: block;
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	top: 0;
+	left: 0;
+	border-radius: 15px;
+	transition: .25s ease-in-out;
+}
+
+.iosbutton::before {
+	background: rgba(76, 217, 100, 0);	
+}
+
+.iosbutton::after {
+	background: #fff;
+	box-shadow: inset 0 0 0 1px rgba(0,0,0,0.2), 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.iosbutton.check::before {
+	width: 40px;
+	background: rgba(76, 217, 100, 1);
+}
+
+.iosbutton.check::after {
+	left: 16px;
+	box-shadow: inset 0 0 0 1px rgba(19,191,17,1), 0 2px 4px rgba(0,0,0,0.2);
+}
