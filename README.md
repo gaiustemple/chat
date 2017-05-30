@@ -1,6 +1,14 @@
 # Chat
 Two way web chat app
 
+## Updates coming soon
+* See when other user has window in focus
+* Settings to toggle color
+* Setting to drop message database/or archive it
+##### May update to
+* Show when other user is typing
+* Send pictures
+
 # Requirements
 * node.js
 
