@@ -1,6 +1,8 @@
 # Chat
 Two way web chat app
 
+[Live Demo](http://46.101.38.159:1000/)
+
 ## Updates coming soon
 * See when other user has window in focus
 * Settings to toggle color
