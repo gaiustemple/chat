@@ -3,6 +3,14 @@ Two way web chat app
 
 # Requirements
 * node.js
+
+```
+$ sudo apt-get update && sudo apt-get upgrade
+
+$ sudo apt-get install -y nodejs nodejs-legacy
+
+$ npm install pm2 -g --unsafe-perm
+```
 * mongodb
 
 On DigitalOcean droplet:
