@@ -141,6 +141,8 @@ $(document).ready(function() {
         console.log(data);
     });
 
+    var focusTimer;
+
     function blurFunction () {
         $('.wrapper').addClass("blur");
         clearInterval(focusTimer);
