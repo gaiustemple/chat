@@ -30,6 +30,7 @@ $(document).ready(function() {
         }
         return "";
     }
+    
 
     if (usernameCookie !== "") {
         chatUsernameIndicator.html(usernameCookie);
