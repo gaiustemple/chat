@@ -164,10 +164,9 @@ $(document).ready(function() {
     };
 
     socket.on("online", function(object){
-        if (object.who !== chatUsername && object.state == "blur") {
-            $(".wrapper").removeClass("online");
-        } else if (object.who !== chatUsername && object.state == "focus") {
-            $(".wrapper").addClass("online");
+        if (object.who !== chatUsername) {
+            $(".wrapper").removeClass("blur focus");
+            $(".wrapper").addClass(object.state);
         }
     });
 
