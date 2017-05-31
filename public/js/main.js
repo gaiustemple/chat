@@ -153,10 +153,7 @@ $(document).ready(function() {
     function focusFunction () {
         $('.wrapper').removeClass("blur");
 
-        var onlineObject = {
-            who: chatUsername,
-            state: "focus"
-        };
+
         socket.emit("online", "true");
         console.log("true")
     };

@@ -60,6 +60,7 @@ MongoClient.connect(url, function(err, db){
 
         socket.on ('online', function(data){
             io.emit('isOnline', data);
+            console.log(data);
         });
 
         socket.on('askForConnectedClients', function(nothing, cb){
