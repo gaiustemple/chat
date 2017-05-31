@@ -100,7 +100,7 @@ $(document).ready(function() {
             chatUsername = 'anon' /* + (new Date()).getTime()*/;
         }
 
-        setCookie("chat_username", usernameField.val(), 365);
+        /*setCookie("chat_username", usernameField.val(), 365);*/
         chatUsernameIndicator.text(chatUsername);
         socket.emit("username", chatUsername);
 
