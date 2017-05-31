@@ -1,7 +1,7 @@
 # Chat
 Two way web chat app
 
-[Live Demo](http://46.101.38.159:1000/)
+<a href="http://46.101.38.159:1000/" target="_blank">Live Demo</a>
 
 ## Updates coming soon
 * **1.0.1** Make responsive
