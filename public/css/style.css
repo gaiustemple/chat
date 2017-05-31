@@ -123,6 +123,7 @@ a {
 	background: rgba(247,247,247,0.7);
 	-webkit-backdrop-filter: blur(15px);
 	backdrop-filter: blur(15px);
+    -webkit-transform: translate(0%,0);
 	transform: translate(0%,0);
 	transition: .6s cubic-bezier(0.13, 0.46, 0.26, 0.97);
 	opacity: 1;
@@ -130,6 +131,7 @@ a {
 }
 
 .settings.closed {
+    -webkit-transform: translate(0,100%);
 	transform: translate(0,100%);
 	opacity: 0;
 	z-index: 0;
