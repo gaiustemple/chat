@@ -5,7 +5,7 @@ Two way web chat app
 
 ## Updates coming soon
 * [x] **1.0.1** Make responsive
-* [ ] **1.0.2** Settings to toggle color
+* [x] **1.0.2** Settings to toggle color
 * [ ] **1.1.0** See when other user has window in focus
 * [ ] **1.1.1** Setting to drop message database/or archive it
 ##### May update to
