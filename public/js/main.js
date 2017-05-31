@@ -47,8 +47,8 @@ $(document).ready(function() {
     chatForm.on("submit", function(e) {
         e.preventDefault();
         var d = new Date (),
-            hours = d.getUTCHours();
-            mins = d.getUTCMinutes();
+            hours = d.getHours();
+            mins = d.getMinutes();
         if (hours < 10) {
             hours = "0" + hours;
         };
