@@ -94,13 +94,13 @@ $(document).ready(function() {
     });
 
     socket.on("connect", function () {
-        if($.cookie("chat_username")){
-            chatUsername = $.cookie("chat_username");
+        if(usernameCookie !== ""){
+            chatUsername = usernameCookie;
         } else {
             chatUsername = 'anon' /* + (new Date()).getTime()*/;
         }
 
-        $.cookie("chat_username", chatUsername);
+        setCookie("chat_username", usernameField.val(), 365);
         chatUsernameIndicator.text(chatUsername);
         socket.emit("username", chatUsername);
 
