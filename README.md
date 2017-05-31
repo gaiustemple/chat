@@ -10,6 +10,7 @@ Two way web chat app
 * [ ] **1.1.1** Setting to drop message database/or archive it
 ##### May update to
 * [ ] **1.1.2** Show when other user is typing
+* [ ] **1.1.3** Send emoji's
 * [ ] **1.2.0** Send pictures
 
 # Requirements
