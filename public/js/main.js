@@ -8,7 +8,33 @@ $(document).ready(function() {
         usernameForm = $('.username-form'),
         usernameSubmit = $('.username-submit'),
         usernameField = $('.username'),
-        usersList = $('.users-list');
+        usersList = $('.users-list'),
+        usernameCookie = getCookie("chat_username");
+
+    function setCookie(cname,cvalue,exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays*24*60*60*1000));
+        var expires = "expires=" + d.toGMTString();
+        document.cookie = cname+"="+cvalue+"; "+expires;
+    }
+
+    function getCookie(cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0; i<ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0)==' ') c = c.substring(1);
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+
+    if (usernameCookie !== "") {
+        chatUsernameIndicator.html(usernameCookie);
+        chatUsername = usernameCookie;
+    }
 
     if (chatUsernameIndicator.html() == "" || chatUsernameIndicator.html() == "anon") {
         /* $(".login").removeClass("hide"); */
@@ -103,7 +129,7 @@ $(document).ready(function() {
         e.preventDefault();
         if (usernameField.val() !== "") {
             chatUsername = usernameField.val();
-            $.cookie("chat_username", usernameField.val());
+            setCookie("chat_username", usernameField.val(), 365);
             chatUsernameIndicator.text(chatUsername);
             socket.emit("username", chatUsername);
 
@@ -114,4 +140,16 @@ $(document).ready(function() {
     socket.on("username", function(data){
         console.log(data);
     });
+
+    function blurFunction () {
+        $('.wrapper').addClass("blur");
+    };
+
+    window.onblur = blurFunction;
+
+    function focusFunction () {
+        $('.wrapper').removeClass("blur");
+    };
+
+    window.onfocus = focusFunction;
 });
