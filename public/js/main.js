@@ -145,7 +145,7 @@ $(document).ready(function() {
         $('.wrapper').addClass("blur");
         
         socket.emit("online", "false");
-        console.log("false")
+        console.log("false");
     };
 
     window.onblur = blurFunction;

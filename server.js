@@ -59,7 +59,7 @@ MongoClient.connect(url, function(err, db){
         });
 
         socket.on ('online', function(data){
-            io.emit('isOnline', data);
+            socket.broadcast.emit('isOnline', data);
             console.log(data);
         });
 
