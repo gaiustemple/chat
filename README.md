@@ -12,6 +12,7 @@ Two way web chat app
 * [ ] **1.1.2** Show when other user is typing
 * [ ] **1.1.3** Send emoji's
 * [ ] **1.2.0** Send pictures
+* [ ] **1.3.0** Group chat?
 
 # Requirements
 * node.js
