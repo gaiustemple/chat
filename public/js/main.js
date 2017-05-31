@@ -144,11 +144,8 @@ $(document).ready(function() {
     function blurFunction () {
         $('.wrapper').addClass("blur");
         
-        var onlineObject = {
-            who: chatUsername,
-            state: "blur"
-        };
-        socket.emit("online", onlineObject);
+        socket.emit("online", "false");
+        console.log("false")
     };
 
     window.onblur = blurFunction;
@@ -160,13 +157,15 @@ $(document).ready(function() {
             who: chatUsername,
             state: "focus"
         };
-        socket.emit("online", onlineObject);
+        socket.emit("online", "true");
+        console.log("true")
     };
 
-    socket.on("online", function(object){
-        if (object.who !== chatUsername) {
-            $(".wrapper").removeClass("blur focus");
-            $(".wrapper").addClass(object.state);
+    socket.on("isOnline", function(object){
+        if (object == "true") {
+            $(".wrapper").addClass("online");
+        } else {
+            $(".wrapper").removeClass("online");
         }
     });
 

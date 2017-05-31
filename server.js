@@ -58,8 +58,8 @@ MongoClient.connect(url, function(err, db){
             socket.broadcast.emit('newConnectedUser', connectedUsersList2);
         });
 
-        socket.on ('online', function(onlineObject){
-            io.emit('online', onlineObject);
+        socket.on ('online', function(data){
+            io.emit('isOnline', data);
         });
 
         socket.on('askForConnectedClients', function(nothing, cb){
