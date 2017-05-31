@@ -143,27 +143,33 @@ $(document).ready(function() {
 
     function blurFunction () {
         $('.wrapper').addClass("blur");
-        socket.emit("blur", chatUsername);
+        
+        var onlineObject = {
+            who: chatUsername,
+            state: "blur"
+        };
+        socket.emit("online", onlineObject);
     };
 
     window.onblur = blurFunction;
 
     function focusFunction () {
         $('.wrapper').removeClass("blur");
-        socket.emit("focus", chatUsername);
+
+        var onlineObject = {
+            who: chatUsername,
+            state: "focus"
+        };
+        socket.emit("online", onlineObject);
     };
 
-    socket.on("blur", function(username){
-        if (username !== chatUsername) {
+    socket.on("online", function(object){
+        if (object.who !== chatUsername && object.state == "blur") {
             $(".wrapper").removeClass("online");
-        }
-    })
-
-    socket.on("focus", function(username){
-        if (username !== chatUsername) {
+        } else if (object.who !== chatUsername && object.state == "focus") {
             $(".wrapper").addClass("online");
         }
-    })
+    });
 
     window.onfocus = focusFunction;
 
