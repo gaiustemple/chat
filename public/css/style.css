@@ -248,6 +248,10 @@ a {
     box-sizing: border-box;
 }
 
+.online .send-message {
+    border: 1px solid #4cd964;
+}
+
 .send-message input {
     width: calc(100% - 2em);
     margin: 0;
