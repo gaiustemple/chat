@@ -337,7 +337,7 @@ a {
 
     .messages {
         width: 100%;
-        height: calc(100% - 6.7em);
+        height: calc(100% - 7em);
     }   
 }
 
@@ -355,6 +355,6 @@ a {
 
     .messages {
         width: 100%;
-        height: calc(100% - 6.7em);
+        height: calc(100% - 7em);
     }
 }
