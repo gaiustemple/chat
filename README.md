@@ -4,13 +4,13 @@ Two way web chat app
 <a href="http://46.101.38.159:1000/" target="_blank">Live Demo</a>
 
 ## Updates coming soon
-* **1.0.1** Make responsive
-* **1.0.2** Settings to toggle color
-* **1.1.0** See when other user has window in focus
-* **1.1.1** Setting to drop message database/or archive it
+* [x] **1.0.1** Make responsive
+* [ ] **1.0.2** Settings to toggle color
+* [ ] **1.1.0** See when other user has window in focus
+* [ ] **1.1.1** Setting to drop message database/or archive it
 ##### May update to
-* **1.1.2** Show when other user is typing
-* **1.2.0** Send pictures
+* [ ] **1.1.2** Show when other user is typing
+* [ ] **1.2.0** Send pictures
 
 # Requirements
 * node.js
