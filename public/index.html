@@ -5,9 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Node Server</title>
         <link rel="stylesheet" href="css/style.css" media="screen" title="no title" charset="utf-8">
-        <script src="js/jquery.min.js" charset="utf-8"></script>
-        <script src="js/socket.io.js" charset="utf-8"></script>
-        <script src="js/main.js" charset="utf-8"></script>
+        <link rel="stylesheet" href="css/ionicons.min.css" media="screen" title="no title" charset="utf-8">
     </head>
 
     <body>
@@ -28,27 +26,31 @@
                 </ul> 
                 <div class="header">
                     <div class="menu">
-                        <div class="logout"></div>
-                        <div class="welcome"><p>Hi, <span class="current-username"></span></p></div>
-                        <div class="info"></div>
+                        <div class="logout"><a><i class="ion-ios-close-outline"></i></a></div>
+                        <div class="welcome"><i class="ion-ios-contact-outline"></i><p>Hi, <span class="current-username"></span></p></div>
+                        <div class="info" onclick="settings();"><a><i class="ion-ios-information-outline"></i></a></div>
                     </div>
-                    <div class="settings closed">
+                    <div id="settings" class="settings closed">
                         <div class="cont">
-                            <div class="settings-option">
-                                <p>Toggle the background between dark and light</p>
-                                <div id="bt1" class="iosbutton" onclick=""></div>
+                            <div>
+                                <div class="settings-option clear">
+                                    <p>Toggle the background between dark and light</p>
+                                    <div id="bt1" class="iosbutton" onclick="darkback();"></div>
+                                </div>
+                                <div class="settings-option disabled clear">
+                                    <p>Do you want your message timestamp shown?</p>
+                                    <div id="bt2" class="iosbutton" onclick=""></div>
+                                </div>
+                                <div class="settings-option disabled clear">
+                                    <p>Do you want their message timestamp shown?</p>
+                                    <div id="bt3" class="iosbutton" onclick=""></div>
+                                </div>
                             </div>
-                            <div class="settings-option">
-                                <p>Do you want your message timestamp shown?</p>
-                                <div id="bt2" class="iosbutton" onclick=""></div>
-                            </div>
-                            <div class="settings-option">
-                                <p>Do you want their message timestamp shown?</p>
-                                <div id="bt3" class="iosbutton" onclick=""></div>
-                            </div>
-                            <div class="settings-option">
-                                <p>Clear the chat</p>
-                                <div id="bt4" class="clearicon" onclick=""></div>
+                            <div>
+                                <div class="settings-option button disabled clear">
+                                    <p>Clear the chat</p>
+                                    <!--<div id="bt4" class="clearicon" onclick=""><i class="ion-ios-trash-outline"></i></div>-->
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -69,5 +71,9 @@
             </div>
 
         </div>
+        <script src="js/jquery.min.js" charset="utf-8"></script>
+        <script src="js/socket.io.js" charset="utf-8"></script>
+        <script src="js/is.min.js" charset="utf-8"></script>
+        <script src="js/main.js" charset="utf-8"></script>
     </body>
 </html>

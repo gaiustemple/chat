@@ -21,6 +21,12 @@ a {
 	text-decoration:none;
 }
 
+.clear::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
 .blur {
 	-webkit-filter: blur(5px);
 	-moz-filter: blur(5px);
@@ -39,6 +45,10 @@ a {
 
 .error-background {
     background: #ff3b30;
+}
+
+.disabled {
+    cursor: not-allowed;
 }
 
 .login {
@@ -67,6 +77,14 @@ a {
 
 .wrapper {
     transition: 0.2s ease;
+}
+
+.darkback .wrapper,
+.darkback .chat,
+.darkback .messages,
+.darkback .menu,
+.darkback .settings {
+	background: #444;
 }
 
 .users-list {
@@ -98,33 +116,51 @@ a {
 
 .settings {
 	position: absolute;
-	top: 3.1em;
+	top: 3.8em;
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background: rgba(255,255,255,0.7);
+	background: rgba(247,247,247,0.7);
 	-webkit-backdrop-filter: blur(15px);
 	backdrop-filter: blur(15px);
-	transform: translate(0,0);
-	transition: .3s ease-out;
+	transform: translate(0%,0);
+	transition: .6s cubic-bezier(0.13, 0.46, 0.26, 0.97);
 	opacity: 1;
 	z-index: 1;
 }
 
 .settings.closed {
-	transform: translate(100%,0);
+	transform: translate(0,100%);
 	opacity: 0;
-	z-index: -1;
+	z-index: 0;
 }
 
-.settings.cont {
-    padding: 20px;
+.settings .cont {
+    padding: 20px 0;
     text-align: left;
 }
 
-.settings.cont p {
+.settings .cont > div {
+    margin-bottom: 1em;
+}
+
+.settings-option {
+    padding: 0.5em;
+    background: rgba(255,255,255,0.8);
+    border-top: 1px solid #dedfe0;
+}
+
+.settings-option:last-child {
+    border-bottom: 1px solid #dedfe0;
+}
+
+.settings .cont p {
     display: inline-block;
-    margin: 0 0 3px 0;
+    margin: 3px 0 0 0;
+}
+
+.settings-option.button {
+    color: #006cFF;
 }
 
 .chat {
@@ -231,6 +267,7 @@ a {
     border: none;
     border-radius: 2em;
     box-sizing: border-box;
+    outline: none;
 }
 
 /* .chat {
@@ -300,7 +337,7 @@ a {
 
     .messages {
         width: 100%;
-        height: calc(100% - 5.7em);
+        height: calc(100% - 6.7em);
     }   
 }
 
@@ -318,6 +355,6 @@ a {
 
     .messages {
         width: 100%;
-        height: calc(100% - 5.7em);
+        height: calc(100% - 6.7em);
     }
 }

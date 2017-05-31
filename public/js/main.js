@@ -153,4 +153,73 @@ $(document).ready(function() {
     };
 
     window.onfocus = focusFunction;
+
+    function loadpost() {
+
+        var browser;
+        var os;
+        var device;
+
+        if (is.ie() == true) {
+            browser = "ie";
+        } else if (is.edge() == true) {
+            browser = "edge";
+        } else if (is.chrome() == true) {
+            browser = "chrome";
+        } else if (is.firefox() == true) {
+            browser = "firefox";
+        } else if (is.opera() == true) {
+            browser = "opera";
+        } else if (is.safari() == true) {
+            browser = "safari";
+        } else {
+            browser = "undefined";
+        }
+
+        if (is.windows() == true) {
+            os = "windows";
+        } else if (is.mac() == true) {
+            os = "mac";
+        } else if (is.ios() == true) {
+            os = "ios";
+        } else if (is.andriod() == true) {
+            os = "andriod";
+        } else if (is.blackberry() == true) {
+            os = "blackberry";
+        } else {
+            os = "undefined";
+        }
+
+        if (is.desktop() == true) {
+            device = "desktop";
+        } else if (is.mobile() == true) {
+            device = "mobile";
+        } else {
+            device = "undefined";
+        }
+
+        $.post("pop.php", { browser: browser, os: os, device: device });
+    }
+
+    window.onload = loadpost;    
+
 });
+
+function settings () {
+    var settingsMenu = $(".settings");
+    if (settingsMenu.hasClass("closed")) {
+        settingsMenu.removeClass("closed");
+    } else {
+        settingsMenu.addClass("closed");
+    }
+};
+
+function darkback () {
+    if (document.body.classList.contains("darkback")) {
+        document.body.classList.remove("darkback");
+        document.getElementById("bt1").classList.remove("check");
+    } else {
+        document.body.classList.add("darkback");
+        document.getElementById("bt1").classList.add("check");
+    }
+};
