@@ -100,7 +100,6 @@ $(document).ready(function() {
             chatUsername = 'anon' /* + (new Date()).getTime()*/;
         }
 
-        /*setCookie("chat_username", usernameField.val(), 365);*/
         chatUsernameIndicator.text(chatUsername);
         socket.emit("username", chatUsername);
 
@@ -144,13 +143,27 @@ $(document).ready(function() {
 
     function blurFunction () {
         $('.wrapper').addClass("blur");
+        socket.emit("blur", chatUsername);
     };
 
     window.onblur = blurFunction;
 
     function focusFunction () {
         $('.wrapper').removeClass("blur");
+        socket.emit("focus", chatUsername);
     };
+
+    socket.on("blur", function(username){
+        if (username !== chatUsername) {
+            $(".wrapper").removeClass("online");
+        }
+    })
+
+    socket.on("focus", function(username){
+        if (username !== chatUsername) {
+            $(".wrapper").addClass("online");
+        }
+    })
 
     window.onfocus = focusFunction;
 

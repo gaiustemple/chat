@@ -58,6 +58,13 @@ MongoClient.connect(url, function(err, db){
             socket.broadcast.emit('newConnectedUser', connectedUsersList2);
         });
 
+        socket.on ('blur', function(username){
+            io.emit('blur', username);
+        });
+
+        socket.on ('focus', function(username){
+            io.emit('focus', username);
+        });
 
         socket.on('askForConnectedClients', function(nothing, cb){
             var connectedUsersList = connectedSockets.map(function(item){
