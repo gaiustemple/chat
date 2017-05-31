@@ -143,7 +143,7 @@ $(document).ready(function() {
 
     function blurFunction () {
         $('.wrapper').addClass("blur");
-        
+        clearInterval(focusTimer);
         socket.emit("online", "false");
         console.log("false");
     };
@@ -153,8 +153,11 @@ $(document).ready(function() {
     function focusFunction () {
         $('.wrapper').removeClass("blur");
 
-
-        socket.emit("online", "true");
+        var focusInterval = function() {
+            socket.emit("online", "true");
+        };
+        /* socket.emit("online", "true"); */
+        focusTimer = setInterval(focusInterval,500);
         console.log("true")
     };
 
