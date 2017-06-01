@@ -94,52 +94,10 @@ MongoClient.connect(url, function(err, db){
 
         socket.on('clearChat', function() {
             console.log("received");
-            db.collection("old3",function(err,target) {
+            var copyTo = "function() { db['messages'].copyTo('old3') };"
 
-                var batch = target.initializeOrderedBulkOp();
-                counter = 0;
-
-                var cursor = db.collection("messages").find();
-                var current = null;       
-
-                async.whilst(
-                    function() {
-                        cursor.nextObject(function(err,doc) {
-                            if (err) throw err;
-
-                            // .nextObject() returns null when the cursor is depleted
-                            if ( doc != null ) {
-                                current = doc;
-                                return true;
-                            } else {
-                                return false;
-                            }
-                        })
-                    },
-                    function(callback) {
-                        batch.insert(current);
-                        counter++;
-
-                        if ( counter % 1000 == 0 ) {
-                            batch.execute(function(err,result) {    
-                                if (err) throw err;
-                                var batch = target.initializeOrderedBulkOp();
-                                callback();
-                            });
-                        }
-                    },
-                    function(err) {
-                        if (err) throw err;
-                        if ( counter % 1000 != 0 ) 
-                            batch.execute(function(err,result) {
-                                if (err) throw err;
-
-                                // job done
-                            });
-                    }
-                );    
-
-
+            db.eval(copyTo, [], function(err, result) {
+            console.log(err);
             });
             console.log("copied");
         })
