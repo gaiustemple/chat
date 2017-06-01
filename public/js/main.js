@@ -163,6 +163,10 @@ $(document).ready(function() {
         console.log("true")
     };
 
+    function archiveMessages () {
+        socket.emit("clearChat");
+    }
+
     socket.on("isOnline", function(object){
         if (object == "true") {
             $(".wrapper").addClass("online");
@@ -242,7 +246,3 @@ function darkback () {
         document.getElementById("bt1").classList.add("check");
     }
 };
-
-function archiveMessages () {
-    socket.emit("clearChat");
-}
