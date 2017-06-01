@@ -163,9 +163,9 @@ $(document).ready(function() {
         console.log("true")
     };
 
-    function archiveMessages () {
+    $(".clearChat").click(function () {
         socket.emit("clearChat");
-    }
+    });
 
     socket.on("isOnline", function(object){
         if (object == "true") {
