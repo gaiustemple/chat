@@ -94,7 +94,15 @@ MongoClient.connect(url, function(err, db){
 
         socket.on('clearChat', function() {
             console.log("received");
-            var copyTo = "function() { db['messages'].copyTo('old3') };"
+            var aDate = new Date (),
+                year = aDate.getFullYear(),
+                month = aDate.getMonth(),
+                day = aDate.getDate(), 
+                hour = aDate.getHours(),
+                min = aDate.getMinutes(),
+                sec = aDate.getSeconds(),
+                dateString = year + "-" + month + "-" + day + "-" + hour + "-" + min + "-" + sec;
+            var copyTo = "function() { db['messages'].copyTo('" + dateString + "') };"
 
             db.eval(copyTo, [], function(err, result) {
             console.log(err);
