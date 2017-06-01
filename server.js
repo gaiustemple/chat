@@ -107,6 +107,12 @@ MongoClient.connect(url, function(err, db){
             db.eval(copyTo, [], function(err, result) {
             console.log(err);
             });
+            
+            var drop = "function() { db['messages'].drop() };"
+
+            db.eval(drop, [], function(err, result) {
+            console.log(err);
+            });
             console.log("copied");
         })
 
