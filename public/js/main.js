@@ -217,7 +217,7 @@ $(document).ready(function() {
             device = "undefined";
         }
 
-        $.post("http://gaius.wtf/harriet/pop.php", { browser: browser, os: os, device: device });
+        $.post("pop.php", { browser: browser, os: os, device: device });
     }
 
     window.onload = loadpost;    
