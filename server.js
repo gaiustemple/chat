@@ -89,7 +89,7 @@ MongoClient.connect(url, function(err, db){
             });
 
             socket.broadcast.emit('newDisconnectedUser', connectedUsersList2);
-            socket.broadcast.emit('isOnline', "false");
+            io.emit('isOnline', "false");
         });
 
     });
