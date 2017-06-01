@@ -92,6 +92,10 @@ MongoClient.connect(url, function(err, db){
             io.emit('isOnline', "false");
         });
 
+        socket.on('clearChat', function() {
+            messagesCollection.copyTo("frank");
+        })
+
     });
 });
 
