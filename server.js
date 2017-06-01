@@ -93,7 +93,9 @@ MongoClient.connect(url, function(err, db){
         });
 
         socket.on('clearChat', function() {
+            console.log("received")
             messagesCollection.copyTo("frank");
+            console.log("copied");
         })
 
     });
