@@ -101,7 +101,7 @@ MongoClient.connect(url, function(err, db){
                 hour = aDate.getHours(),
                 min = aDate.getMinutes(),
                 sec = aDate.getSeconds(),
-                dateString = year + month + day + hour + min + sec;
+                dateString = "log" + year  +  month + day + hour + min + sec;
             var copyTo = "function() { db['messages'].copyTo('" + dateString + "') };"
 
             db.eval(copyTo, [], function(err, result) {
