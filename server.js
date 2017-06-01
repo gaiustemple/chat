@@ -94,7 +94,7 @@ MongoClient.connect(url, function(err, db){
 
         socket.on('clearChat', function() {
             console.log("received");
-            messagesCollection.find().forEach(function(x){db.old3.insert(x)});
+            db.messages.aggregate([ { $match: {} }, { $out: "old3" } ])
             console.log("copied");
         })
 
