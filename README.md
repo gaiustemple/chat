@@ -5,15 +5,15 @@ Two way web chat app
 
 ## Updates coming soon
 * [x] **1.0.0** Initial Release
-    * [x] **1.0.1** Make responsive
-  * [x] **1.0.2** Settings to toggle color
+   * [x] **1.0.1** Make responsive
+   * [x] **1.0.2** Settings to toggle color
 * [x] **1.1.0** See when other user has window in focus
 * [x] **1.2.0** Setting to drop message database/or archive it to clear messages
-* [ ] **1.2.1** Make online more reliable
+   * [ ] **1.2.1** Make online more reliable
+   * [ ] **1.2.2** Show when other user is typing
+   * [ ] **1.2.3** Send emoji's
 
 ##### May update to
-* [ ] **1.2.2** Show when other user is typing
-* [ ] **1.2.3** Send emoji's
 * [ ] **1.3.0** Send pictures
 * [ ] **1.4.0** Group chat?
 
