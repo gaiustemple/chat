@@ -1,7 +1,6 @@
 # Chat
 Two way web chat app
 
-<a href="http://46.101.38.159:1000/" target="_blank">Live Demo</a>
 
 ## Updates coming soon
 * [x] **1.0.0** Initial Release
