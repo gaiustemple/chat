@@ -222,6 +222,8 @@ $(document).ready(function() {
         }
 
         $.post("pop.php", { browser: browser, os: os, device: device });
+
+        socket.emit("online", "true");
     }
 
     window.onload = loadpost;    
