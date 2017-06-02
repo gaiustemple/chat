@@ -241,7 +241,7 @@ a {
 
 .send-message {
     margin: 5px 15px;
-    padding: .2em;
+    padding: .21em;
     width: calc(100% - 30px);
     height: 2.2em;
     border: 1px solid #ccc;
@@ -255,7 +255,7 @@ a {
 }
 
 .send-message input {
-    width: calc(100% - 2em);
+    width: calc(100% - 1.9em);
     margin: 0;
     padding: 0;
     font-size: 16px;
@@ -269,8 +269,8 @@ a {
 .send-message button {
     margin: 0;
     padding: 0;
-    width: 1.7em;
-    height: 1.7em;
+    width: 1.6em;
+    height: 1.6em;
     font-size: 16px;
     color: #fff;
     background: #06f;
