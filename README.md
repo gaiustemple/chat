@@ -4,8 +4,9 @@ Two way web chat app
 <a href="http://46.101.38.159:1000/" target="_blank">Live Demo</a>
 
 ## Updates coming soon
-* [x] **1.0.1** Make responsive
-* [x] **1.0.2** Settings to toggle color
+* [x] **1.0.0** Initial Release
+    * [x] **1.0.1** Make responsive
+  * [x] **1.0.2** Settings to toggle color
 * [x] **1.1.0** See when other user has window in focus
 * [x] **1.2.0** Setting to drop message database/or archive it to clear messages
 * [ ] **1.2.1** Make online more reliable
