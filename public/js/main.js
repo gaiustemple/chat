@@ -205,23 +205,28 @@ $(document).ready(function() {
 
     function blurFunction () {
         $('.wrapper').addClass("blur");
+        var onlineData = {
+            user: chatUsername,
+            state: "false"
+        }
         clearInterval(focusTimer);
-        socket.emit("online", "false");
-        console.log("false");
+        socket.emit("online", onlineData);
     };
 
     window.onblur = blurFunction;
 
     function focusFunction () {
         $('.wrapper').removeClass("blur");
+        var onlineData = {
+            user: chatUsername,
+            state: "true"
+        }
 
         var focusInterval = function() {
-            socket.emit("online", "true");
+            socket.emit("online", onlineData);
         };
-        /* socket.emit("online", "true"); */
         focusTimer = setInterval(focusInterval,2000);
-        console.log("true");
-        socket.emit("online", "true");
+        socket.emit("online", onlineData);
     };
 
     $(".clearChat").click(function () {
@@ -229,7 +234,7 @@ $(document).ready(function() {
     });
 
     socket.on("isOnline", function(object){
-        if (object == "true") {
+        if (object.state == "true") {
             $(".wrapper").addClass("online");
         } else {
             $(".wrapper").removeClass("online");
