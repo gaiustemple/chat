@@ -65,8 +65,13 @@ MongoClient.connect(url, function(err, db){
         });
 
         socket.on ('online', function(data){
+            var d = new Date(),
+                time = d.getHours() + ':' + d.getMinutes();
             socket.broadcast.emit('isOnline', data);
             console.log(data.user + " " + data.state);
+            fs.appendFile('public/onlinelog.html', '<div>' + time + ' ' + data.user + ' ' + data.state + '</div>', function(err){
+                if (err) throw err;
+            });
         });
 
         socket.on('askForConnectedClients', function(nothing, cb){
