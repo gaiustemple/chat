@@ -146,9 +146,9 @@ $(document).ready(function() {
             }
 
             deviceInfo = {
-                browser: browser,
-                os: os,
-                device: device
+                browserV: browser,
+                osV: os,
+                deviceV: device
             };
             console.log("test");
             console.log(deviceInfo);
