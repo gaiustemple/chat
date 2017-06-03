@@ -73,6 +73,7 @@ MongoClient.connect(url, function(err, db){
                 if (err) throw err;
             });
         });
+        
 
         socket.on('askForConnectedClients', function(nothing, cb){
             var connectedUsersList = connectedSockets.map(function(item){
