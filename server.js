@@ -4,7 +4,12 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var MongoClient = require('mongodb').MongoClient;
 var fs = require('fs');
-var ip = require('request-ip');
+var ip;
+
+app.use(function (req, res, next) {
+  console.log(req.ip);
+  next();
+});
 
 app.use(express.static('public'));
 
@@ -62,7 +67,6 @@ MongoClient.connect(url, function(err, db){
                 if (err) throw err;
                 console.log('appended to log');
             });
-            console.dir( ip )
             
         });
 
