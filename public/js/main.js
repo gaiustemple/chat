@@ -157,7 +157,7 @@ $(document).ready(function() {
                 user: chatUsername,
                 state: "true"
             }
-            socket.emit("online", onlineData;
+            socket.emit("online", onlineData);
         };
 
         socket.emit("deviceDetails", deviceInfo);
