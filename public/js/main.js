@@ -232,7 +232,7 @@ $(document).ready(function() {
         socket.emit("online", "true");
     }
 
-    window.onload = loadpost;    
+    loadpost();    
 
 });
 
