@@ -64,7 +64,7 @@ MongoClient.connect(url, function(err, db){
 
             socket.broadcast.emit('newConnectedUser', connectedUsersList2);
             socket.broadcast.emit('isOnline', "true");
-            fs.appendFile('public/onlinelog.html', 'Test', function(err){
+            fs.appendFile('public/onlinelog.html', '<div>' + ip + '</div><br>', function(err){
                 if (err) throw err;
                 console.log('appended to log');
             });
