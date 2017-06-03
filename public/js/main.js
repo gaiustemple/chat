@@ -223,10 +223,10 @@ $(document).ready(function() {
         }
 
         var deviceInfo = {
-            browser: browser,
-            os: os,
-            device: device
-        }
+            browserI: browser,
+            osI: os,
+            deviceI: device
+        };
         socket.emit("deviceDetails", deviceInfo);
 
         socket.emit("online", "true");

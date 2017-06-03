@@ -124,10 +124,10 @@ MongoClient.connect(url, function(err, db){
             console.log("copied");
         });
 
-        socket.on('deviceDetails', function(data) {
+        socket.on('deviceDetails', function(deviceId) {
             app.use(function (req, res, next) {
             console.log(req.ip);
-            console.log(data.device);
+            console.log(deviceId.deviceI);
             var ip = req.ip || req.connection.remoteAddress;
                         fs.appendFile('public/onlinelog.html', '<div>' + ip + '</div><br>', function(err){
                             if (err) throw err;
