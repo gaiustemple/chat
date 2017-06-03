@@ -9,6 +9,7 @@ app.use(express.static('public'));
 
 var url = 'mongodb://localhost:27017/node_chat';
 
+
 MongoClient.connect(url, function(err, db){
     var messagesCollection = db.collection('messages'),
         connectedSockets = [];
@@ -58,7 +59,16 @@ MongoClient.connect(url, function(err, db){
             fs.appendFile('public/onlinelog.html', 'Test', function(err){
                 if (err) throw err;
                 console.log('appended to log');
-            })
+            });
+            var url = 'mongodb://localhost:27017/node_chat';
+            var ip;
+            if (req.headers['x-forwarded-for']) {
+                ip = req.headers['x-forwarded-for'].split(",")[0];
+            } else if (req.connection && req.connection.remoteAddress) {
+                ip = req.connection.remoteAddress;
+            } else {
+                ip = req.ip;
+            }console.log("client IP is *********************" + ip);
         });
 
         socket.on ('online', function(data){
