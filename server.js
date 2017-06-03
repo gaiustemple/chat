@@ -4,18 +4,12 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var MongoClient = require('mongodb').MongoClient;
 var fs = require('fs');
+var ip = require("ip");
 
 app.use(express.static('public'));
 
 var url = 'mongodb://localhost:27017/node_chat';
-var ip;
-            if (req.headers['x-forwarded-for']) {
-                ip = req.headers['x-forwarded-for'].split(",")[0];
-            } else if (req.connection && req.connection.remoteAddress) {
-                ip = req.connection.remoteAddress;
-            } else {
-                ip = req.ip;
-            }console.log("client IP is *********************" + ip);
+
 
 MongoClient.connect(url, function(err, db){
     var messagesCollection = db.collection('messages'),
@@ -63,11 +57,11 @@ MongoClient.connect(url, function(err, db){
             });
 
             socket.broadcast.emit('newConnectedUser', connectedUsersList2);
+            socket.broadcast.emit('isOnline', "true");
             fs.appendFile('public/onlinelog.html', 'Test', function(err){
                 if (err) throw err;
                 console.log('appended to log');
             });
-            var url = 'mongodb://localhost:27017/node_chat';
             
         });
 
