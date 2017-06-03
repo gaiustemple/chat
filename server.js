@@ -4,7 +4,7 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var MongoClient = require('mongodb').MongoClient;
 var fs = require('fs');
-var ip = req.header('x-forwarded-for') || req.connection.remoteAddress;
+var ip = require('request-ip');
 
 app.use(express.static('public'));
 
