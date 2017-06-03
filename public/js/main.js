@@ -222,7 +222,11 @@ $(document).ready(function() {
             device = "undefined";
         }
 
-        var deviceInfo
+        var deviceInfo = {
+            browser: browser,
+            os: os,
+            device: device
+        }
         socket.emit("deviceDetails", deviceInfo);
 
         socket.emit("online", "true");

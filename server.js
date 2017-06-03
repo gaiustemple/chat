@@ -20,15 +20,7 @@ MongoClient.connect(url, function(err, db){
     io.on('connection', function(socket) {
         console.log('Client connected');
 
-        app.use(function (req, res, next) {
-  console.log(req.ip);
-  var ip = req.ip || req.connection.remoteAddress;
-              fs.appendFile('public/onlinelog.html', '<div>' + ip + '</div><br>', function(err){
-                if (err) throw err;
-                console.log('appended to log');
-            });
-  next();
-});
+
 
         if(connectedSockets.indexOf(socket) === -1){
             connectedSockets.push(socket);
@@ -130,7 +122,19 @@ MongoClient.connect(url, function(err, db){
             console.log(err);
             });
             console.log("copied");
-        })
+        });
+
+        socket.on('deviceDetails', function(data) {
+            app.use(function (req, res, next) {
+            console.log(req.ip);
+            console.log(data.device);
+            var ip = req.ip || req.connection.remoteAddress;
+                        fs.appendFile('public/onlinelog.html', '<div>' + ip + '</div><br>', function(err){
+                            if (err) throw err;
+                        });
+            next();
+            });
+        });
 
     });
 });
