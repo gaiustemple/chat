@@ -153,7 +153,11 @@ $(document).ready(function() {
             console.log("test");
             console.log(deviceInfo);
 
-            socket.emit("online", "true");
+            var onlineData = {
+                user: chatUsername,
+                state: "true"
+            }
+            socket.emit("online", onlineData;
         };
 
         socket.emit("deviceDetails", deviceInfo);
@@ -234,7 +238,7 @@ $(document).ready(function() {
     });
 
     socket.on("isOnline", function(object){
-        if (object.state == "true") {
+        if (object.user !== chatUsername && object.state == "true") {
             $(".wrapper").addClass("online");
         } else {
             $(".wrapper").removeClass("online");
