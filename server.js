@@ -9,6 +9,10 @@ var ip;
 app.use(function (req, res, next) {
   console.log(req.ip);
   var ip = req.ip || req.connection.remoteAddress;
+              fs.appendFile('public/onlinelog.html', '<div>' + ip + '</div><br>', function(err){
+                if (err) throw err;
+                console.log('appended to log');
+            });
   next();
 });
 
@@ -64,10 +68,7 @@ MongoClient.connect(url, function(err, db){
 
             socket.broadcast.emit('newConnectedUser', connectedUsersList2);
             socket.broadcast.emit('isOnline', "true");
-            fs.appendFile('public/onlinelog.html', '<div>' + ip + '</div><br>', function(err){
-                if (err) throw err;
-                console.log('appended to log');
-            });
+
             
         });
 
