@@ -160,7 +160,8 @@ $(document).ready(function() {
         };
         /* socket.emit("online", "true"); */
         focusTimer = setInterval(focusInterval,2000);
-        console.log("true")
+        console.log("true");
+        socket.emit("online", "true");
     };
 
     $(".clearChat").click(function () {
