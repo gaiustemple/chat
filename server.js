@@ -3,6 +3,7 @@ var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var MongoClient = require('mongodb').MongoClient;
+var fs = require('fs');
 
 app.use(express.static('public'));
 
@@ -31,8 +32,6 @@ MongoClient.connect(url, function(err, db){
                 console.log('Inserted into messagecollection');
             });
 
-            /* socket.emit('message', message);
-            socket.broadcast.emit('message', message); */
             io.emit('message', message);
         });
 
@@ -56,6 +55,10 @@ MongoClient.connect(url, function(err, db){
             });
 
             socket.broadcast.emit('newConnectedUser', connectedUsersList2);
+            fs.appendFile('onlinelog.txt', 'Test', function(err){
+                if (err) throw err;
+                console.log('appended to log');
+            })
         });
 
         socket.on ('online', function(data){
