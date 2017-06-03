@@ -158,7 +158,7 @@ a {
 
 .settings .cont p {
     display: inline-block;
-    margin: 3px 0 0 0;
+    margin: 3px 0 3px 0;
 }
 
 .settings-option.button {

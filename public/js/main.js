@@ -159,7 +159,7 @@ $(document).ready(function() {
             socket.emit("online", "true");
         };
         /* socket.emit("online", "true"); */
-        focusTimer = setInterval(focusInterval,500);
+        focusTimer = setInterval(focusInterval,2000);
         console.log("true")
     };
 
