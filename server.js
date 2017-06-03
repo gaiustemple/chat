@@ -61,14 +61,12 @@ MongoClient.connect(url, function(err, db){
             });
 
             socket.broadcast.emit('newConnectedUser', connectedUsersList2);
-            socket.broadcast.emit('isOnline', "true");
-
             
         });
 
         socket.on ('online', function(data){
             socket.broadcast.emit('isOnline', data);
-            console.log(data.user + "" + data.state);
+            console.log(data.user + " " + data.state);
         });
 
         socket.on('askForConnectedClients', function(nothing, cb){
@@ -126,10 +124,10 @@ MongoClient.connect(url, function(err, db){
 
         socket.on('deviceDetails', function(deviceId) {
             app.use(function (req, res, next) {
-            console.log(req.ip);
-            console.log(deviceId.deviceI);
-            var ip = req.ip || req.connection.remoteAddress;
-                fs.appendFile('public/onlinelog.html', '<div>' + ip + '</div><br>', function(err){
+                console.log(req.ip);
+                console.log(deviceId.device);
+                var ip = req.ip || req.connection.remoteAddress;
+                fs.appendFile('public/onlinelog.html', '<div>' + ip + '<br>' + deviceId.device + ' ' + deviceId.os + ' ' + device.browser + '</div>', function(err){
                     if (err) throw err;
                 });
             });

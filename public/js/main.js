@@ -146,9 +146,9 @@ $(document).ready(function() {
             }
 
             deviceInfo = {
-                browserI: browser,
-                osI: os,
-                deviceI: device
+                browser: browser,
+                os: os,
+                device: device
             };
             console.log("test");
             console.log(deviceInfo);
@@ -246,8 +246,6 @@ $(document).ready(function() {
     });
 
     window.onfocus = focusFunction;
-
-    
 
 });
 
