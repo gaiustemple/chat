@@ -158,9 +158,9 @@ $(document).ready(function() {
                 state: "true"
             }
             socket.emit("online", onlineData);
+            socket.emit("deviceDetails", deviceInfo);
         };
 
-        socket.emit("deviceDetails", deviceInfo);
 
         loadpost();
 
