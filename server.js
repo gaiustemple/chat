@@ -35,7 +35,7 @@ MongoClient.connect(url, function(err, db){
             console.log('message: ' + message);
 
             messagesCollection.insertOne({user: message.user, text: message.body, time: message.time}, function(err, res){
-                console.log('Inserted into messagecollection');
+                console.log('Inserted into db');
             });
 
             io.emit('message', message);
@@ -73,7 +73,6 @@ MongoClient.connect(url, function(err, db){
                 if (err) throw err;
             });
         });
-        
 
         socket.on('askForConnectedClients', function(nothing, cb){
             var connectedUsersList = connectedSockets.map(function(item){
