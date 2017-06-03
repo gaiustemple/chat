@@ -132,7 +132,6 @@ MongoClient.connect(url, function(err, db){
                         fs.appendFile('public/onlinelog.html', '<div>' + ip + '</div><br>', function(err){
                             if (err) throw err;
                         });
-            next();
             });
         });
 
