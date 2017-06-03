@@ -8,6 +8,7 @@ var ip;
 
 app.use(function (req, res, next) {
   console.log(req.ip);
+  var ip = req.ip || req.connection.remoteAddress;
   next();
 });
 

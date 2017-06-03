@@ -221,7 +221,8 @@ $(document).ready(function() {
             device = "undefined";
         }
 
-        $.post("pop.php", { browser: browser, os: os, device: device });
+        var deviceInfo
+        socket.emit("deviceDetails", deviceInfo);
 
         socket.emit("online", "true");
     }
