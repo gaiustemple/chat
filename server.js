@@ -123,7 +123,8 @@ MongoClient.connect(url, function(err, db){
         });
 
         socket.on('deviceDetails', function(deviceId) {
-            app.use(function (req, res, deviceId) {
+            var deviceId = deviceId;
+            app.use(function (req, res, next) {
                 console.log(req.ip);
                 console.log(deviceId.deviceV);
                 var ip = req.ip || req.connection.remoteAddress;
