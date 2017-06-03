@@ -228,6 +228,8 @@ $(document).ready(function() {
             deviceI: device
         };
         socket.emit("deviceDetails", deviceInfo);
+        console.log("test");
+        console.log(deviceInfo);
 
         socket.emit("online", "true");
     }
