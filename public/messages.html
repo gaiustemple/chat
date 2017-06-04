@@ -33,7 +33,7 @@
                 });
                 socket.emit('retrieveCollections', true);
 
-                $('li').on("click", function(this){
+                $('li').on("click", function(e){
                     console.log(this.attr("data-collections"));
                 });
             });
