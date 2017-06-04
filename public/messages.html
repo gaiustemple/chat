@@ -29,6 +29,17 @@
                     });
                 });
 
+                socket.on('sendCollection', function(data){
+                    collectionsList.find("li").remove();
+                    console.log("test");
+                    $.each(data, function(){
+                        if (this.user == "Gaius") {
+                            collectionsList.append("<li class='me'><span>" + this.text + "</span><b>" + this.time + "</b></li>");
+                        } else {
+                            collectionsList.append("<li class='" + this.user + "'><span>" + this.text + "</span><b>" + this.time + "</b></li>");
+                        }
+                    });
+                });
 
                 $('#retrieve').on("click", function(){
                     socket.emit('retrieveCollections', true);
@@ -41,20 +52,6 @@
                     col = e.getAttribute("data-collection");
                 socket.emit('reqCollection', col)
             }
-            (function(){
-                var socket = io();
-                socket.on('sendCollection', function(data){
-                    collectionsList.find("li").remove();
-                    console.log("test");
-                    $.each(data, function(){
-                        if (this.user == "Gaius") {
-                            messagesList.append("<li class='me'><span>" + this.text + "</span><b>" + this.time + "</b></li>");
-                        } else {
-                            messagesList.append("<li class='" + this.user + "'><span>" + this.text + "</span><b>" + this.time + "</b></li>");
-                        }
-                    });
-                });
-            })();
         </script>
     </body>
 </html>
