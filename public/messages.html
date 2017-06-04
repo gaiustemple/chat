@@ -21,6 +21,7 @@
                 var socket = io(),
                     collectionsList  = $(".list");
 
+                socket.emit('retrieveCollections', true);
                 socket.on('collectionsArray', function(data){
                     collectionsList.find("li").remove();
                     $.each(data, function(){
@@ -31,7 +32,6 @@
                 $('#retrieve').on("click", function(){
                     socket.emit('retrieveCollections', true);
                 });
-                socket.emit('retrieveCollections', true);
 
                 $('li.collection').click(function(){
                     console.log("boob");
