@@ -169,7 +169,7 @@ MongoClient.connect(url, function(err, db){
         });
 
         socket.on('reqCollection', function(data){
-            console.log("got");
+            console.log(data);
             var theCollection = db.collection("" + data + "");
             theCollection.find().toArray().then(function(docs){
                 socket.emit('sendCollection', docs);
