@@ -170,7 +170,7 @@ MongoClient.connect(url, function(err, db){
 
         socket.on('reqCollection', function(data){
             console.log(data);
-            var theCollection = db.collection("'" + data + "'");
+            var theCollection = db.collection('old3');
             theCollection.find().toArray().then(function(docs){
                 socket.emit('sendCollection', docs);
                 console.log("sent" + docs);
