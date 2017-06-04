@@ -29,6 +29,17 @@
                     });
                 });
 
+                socket.on('sendCollections', function(data){
+                    collectionsList.find("li").remove();
+                    $.each(data, function(){
+                        if (this.user == "Gaius") {
+                            messagesList.append("<li class='me'><span>" + this.text + "</span><b>" + this.time + "</b></li>");
+                        } else {
+                            messagesList.append("<li class='" + this.user + "'><span>" + this.text + "</span><b>" + this.time + "</b></li>");
+                        }
+                    });
+                });
+
                 $('#retrieve').on("click", function(){
                     socket.emit('retrieveCollections', true);
                 });

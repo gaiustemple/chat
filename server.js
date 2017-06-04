@@ -51,7 +51,7 @@ MongoClient.connect(url, function(err, db){
 
             messagesCollection.find().toArray().then(function(docs){
                 socket.emit('chatHistory', docs);
-            })
+            });
 
             var connectedUsersList2 = connectedSockets.map(function(item){
                 return {
@@ -169,7 +169,10 @@ MongoClient.connect(url, function(err, db){
         });
 
         socket.on('reqCollection', function(data){
-            console.log(data);
+            var getCollection = data;
+            db.collection(getCollection).find().toArray().then(function(docs){
+                socket.emit('sendCollection', docs);
+            });
         });
 
     });
