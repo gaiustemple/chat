@@ -24,7 +24,7 @@
                 socket.on('collectionsArray', function(data){
                     collectionsList.find("li").remove();
                     $.each(data, function(){
-                        console.log(data)
+                        console.log(this.name)
                     });
                 });
 
