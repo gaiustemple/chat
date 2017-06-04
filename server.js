@@ -113,7 +113,7 @@ MongoClient.connect(url, function(err, db){
                 min = aDate.getMinutes(),
                 sec = aDate.getSeconds(),
                 dateString;
-            function () {
+            (function () {
                 if (month < 9) {
                     month = "0" + month;
                 };
@@ -130,7 +130,7 @@ MongoClient.connect(url, function(err, db){
                     sec = "0" + sec;
                 };
                 dateString = "log" + year  +  month + day + hour + min + sec;
-            }
+            })();
             var copyTo = "function() { db['messages'].copyTo('" + dateString + "') };"
 
             db.eval(copyTo, [], function(err, result) {
