@@ -25,7 +25,7 @@
                 socket.on('collectionsArray', function(data){
                     collectionsList.find("li").remove();
                     $.each(data, function(){
-                        collectionsList.append("<li class='collection' data-collection='" + this.name + "'>" + this.name + "</li>")
+                        collectionsList.append("<li class='collection' data-collection='" + this.name + "' onclick='collectionClick();'>" + this.name + "</li>")
                     });
                 });
 
@@ -33,10 +33,13 @@
                     socket.emit('retrieveCollections', true);
                 });
 
+            });
+
+            function collectionClick () {
                 $('li.collection').click(function(){
                     console.log("boob");
                 });
-            });
+            }
         </script>
     </body>
 </html>
