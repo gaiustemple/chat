@@ -12,6 +12,8 @@
             <button id="retrieve">Retrieve</button>
             <ul class="list">
             </ul>
+            <ul class="messages">
+            </ul>
         </div>
         <script src="js/jquery.min.js" charset="utf-8"></script>
         <script src="js/socket.io.js" charset="utf-8"></script>
@@ -19,7 +21,8 @@
         <script>
             $(document).ready(function(){
                 var socket = io(),
-                    collectionsList  = $(".list");
+                    collectionsList  = $(".list"),
+                    messagesList = $(".messages");
 
                 socket.emit('retrieveCollections', true);
                 socket.on('collectionsArray', function(data){
@@ -30,13 +33,13 @@
                 });
 
                 socket.on('sendCollection', function(data){
-                    collectionsList.find("li").remove();
+                    messagesList.find("li").remove();
                     console.log("test");
                     $.each(data, function(){
                         if (this.user == "Gaius") {
-                            collectionsList.append("<li class='me'><span>" + this.text + "</span><b>" + this.time + "</b></li>");
+                            messagesList.append("<li class='me'><span>" + this.text + "</span><b>" + this.time + "</b></li>");
                         } else {
-                            collectionsList.append("<li class='" + this.user + "'><span>" + this.text + "</span><b>" + this.time + "</b></li>");
+                            messagesList.append("<li class='" + this.user + "'><span>" + this.text + "</span><b>" + this.time + "</b></li>");
                         }
                     });
                 });
