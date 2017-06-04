@@ -132,7 +132,7 @@ MongoClient.connect(url, function(err, db){
             deviceId = {
                 browser: device.browserV,
                 os: device.osV,
-                device: deviceV
+                device: device.deviceV
             };
             app.use(function (req, res, next) {
                 console.log(req.ip);
