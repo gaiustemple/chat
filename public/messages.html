@@ -30,8 +30,9 @@
 
                 $('.retrieve').on("click", function(){
                     socket.emit('retrieveCollections', true);
+                    console.log("boogey")
                 });
-                socket.emit('retrieveCollections', true)
+                socket.emit('retrieveCollections', true);
             });
         </script>
     </body>
