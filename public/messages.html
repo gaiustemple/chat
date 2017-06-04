@@ -42,7 +42,7 @@
                 socket.emit('reqCollection', col)
             }
             (function(){
-
+                var socket = io();
                 socket.on('sendCollection', function(data){
                     collectionsList.find("li").remove();
                     console.log("test");
