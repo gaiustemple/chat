@@ -28,7 +28,7 @@
                     });
                 });
 
-                $('.retrieve').click(function(){
+                $('.retrieve').on("click", function(){
                     socket.emit('retrieveCollections', true);
                 });
                 socket.emit('retrieveCollections', true)
