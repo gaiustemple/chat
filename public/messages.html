@@ -9,6 +9,7 @@
     </head>
     <body>
         <div>
+            <button id="retrieve"></button>
             <ul class="list">
             </ul>
         </div>
@@ -27,7 +28,9 @@
                     });
                 });
 
-                socket.emit('retrieveCollections', true)
+                $('.retrieve').click(function(){
+                    socket.emit('retrieveCollections', true);
+                });
             });
         </script>
     </body>
