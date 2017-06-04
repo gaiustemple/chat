@@ -30,6 +30,7 @@
                 });
 
                 socket.on('sendCollections', function(data){
+                    console.log("fine")
                     collectionsList.find("li").remove();
                     $.each(data, function(){
                         if (this.user == "Gaius") {
