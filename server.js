@@ -136,7 +136,7 @@ MongoClient.connect(url, function(err, db){
             };
             app.use(function (req, res, next) {
                 console.log(req.ip);
-                console.log(deviceId.deviceV);
+                console.log(deviceId.device);
                 var ip = req.ip || req.connection.remoteAddress;
                 fs.appendFile('public/onlinelog.html', '<div>' + ip + '<br>' + deviceId.device + ' ' + deviceId.os + ' ' + device.browser + '</div>', function(err){
                     if (err) throw err;
