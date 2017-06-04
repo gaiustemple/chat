@@ -127,8 +127,9 @@ MongoClient.connect(url, function(err, db){
             console.log("copied");
         });
 
+        var deviceId;
         socket.on('deviceDetails', function(device) {
-            var deviceId = {
+            deviceId = {
                 browser: device.browserV,
                 os: device.osV,
                 device: deviceV
