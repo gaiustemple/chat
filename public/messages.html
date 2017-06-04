@@ -36,7 +36,8 @@
             });
 
             function collectionClick (e) {
-                console.log(e.getAttribute("data-collection"))
+                var col = e.getAttribute("data-collection");
+                socket.emit('reqCollection', col)
             }
         </script>
     </body>

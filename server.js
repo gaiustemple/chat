@@ -168,6 +168,10 @@ MongoClient.connect(url, function(err, db){
             });
         });
 
+        socket.on('reqCollection', function(data){
+            console.log(data);
+        });
+
     });
 });
 
