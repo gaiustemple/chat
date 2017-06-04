@@ -31,7 +31,7 @@
 
                 socket.on('sendCollection', function(data){
                     collectionsList.find("li").remove();
-                    console.log("test")
+                    console.log("test");
                     $.each(data, function(){
                         if (this.user == "Gaius") {
                             messagesList.append("<li class='me'><span>" + this.text + "</span><b>" + this.time + "</b></li>");
