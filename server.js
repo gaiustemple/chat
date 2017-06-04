@@ -144,6 +144,12 @@ MongoClient.connect(url, function(err, db){
             });
         });
 
+        socket.on('retrieveCollections', function(){
+            db.listCollections().toArray().then(function(docs){
+                socket.emit('collectionsArray', docs);
+            });
+        });
+
     });
 });
 

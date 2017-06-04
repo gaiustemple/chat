@@ -1,0 +1,32 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Node</title>
+        <link rel="stylesheet" href="css/style.css" media="screen" title="no title" charset="utf-8">
+        <link rel="stylesheet" href="css/ionicons.min.css" media="screen" title="no title" charset="utf-8">
+    </head>
+    <body>
+        <div>
+            <ul class="list">
+            </ul>
+        </div>
+        <script src="js/jquery.min.js" charset="utf-8"></script>
+        <script src="js/socket.io.js" charset="utf-8"></script>
+        <script src="js/is.min.js" charset="utf-8"></script>
+        <script>
+            $(document).ready(function(){
+                var socket = io(),
+                    collectionsList  = $(".list");
+
+                socket.on('collectionsArray', function(data){
+                    collectionsList.find("li").remove();
+                    $.each(data, function(){
+                        console.log(data)
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>
