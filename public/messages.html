@@ -24,7 +24,7 @@
                 socket.on('collectionsArray', function(data){
                     collectionsList.find("li").remove();
                     $.each(data, function(){
-                        collectionsList.append("<li data-collection='" + this.name + "'>" + this.name + "</li>")
+                        collectionsList.append("<li class='collection' data-collection='" + this.name + "'>" + this.name + "</li>")
                     });
                 });
 
@@ -33,7 +33,7 @@
                 });
                 socket.emit('retrieveCollections', true);
 
-                $('li').on("click", function(e){
+                $('.collection').on("click", function(e){
                     console.log(this.attr("data-collections"));
                 });
             });
